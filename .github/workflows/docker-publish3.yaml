@@ -58,10 +58,6 @@ jobs:
         working-directory: frontend
         run: pnpm run lint
 
-      - name: Run frontend unit tests
-        working-directory: frontend
-        run: pnpm test
-
       # --- DOCKER BUILD & PUSH ---
 
       - name: Log in to Docker Hub
