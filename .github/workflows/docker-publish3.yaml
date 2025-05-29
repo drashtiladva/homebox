@@ -47,17 +47,20 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install frontend dependencies
+      - name: Install pnpm
+        run: npm install -g pnpm
+        
+      - name: Install dependencies
         working-directory: frontend
-        run: npm install --legacy-peer-deps
+        run: pnpm install
 
       - name: Lint frontend code
         working-directory: frontend
-        run: npm run lint
+        run: pnpm run lint
 
       - name: Run frontend unit tests
         working-directory: frontend
-        run: npm test
+        run: pnpm test
 
       # --- DOCKER BUILD & PUSH ---
 
