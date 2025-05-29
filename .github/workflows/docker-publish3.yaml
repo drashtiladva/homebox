@@ -18,6 +18,10 @@ jobs:
         with:
           go-version: '1.21'
 
+      - name: Initialize Go module
+        run: |
+          go mod tidy
+
       - name: Lint Go code
         run: go vet ./...
 
