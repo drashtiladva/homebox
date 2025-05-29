@@ -20,16 +20,23 @@ jobs:
 
       - name: Initialize Go module
         run: |
+          cd backend
           go mod tidy
 
       - name: Lint Go code
-        run: go vet ./...
+        run: |
+          cd backend
+          go vet ./...
 
       - name: Run tests
-        run: go test ./...
+        run: |
+          cd backend
+          go test ./...
 
       - name: Build Go project
-        run: go build -v ./...
+        run: |
+          cd backend
+          go build -v ./...
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
