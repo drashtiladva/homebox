@@ -89,7 +89,7 @@ jobs:
         with:
            images: drashti114/homebox
            tags: |
-                  type=sha
+                type=raw,value={{ref_name}}-{{short_sha}}-{{date 'YYYYMMDDHHmmss'}}
                   
       - name: Login
         uses: docker/login-action@v3
