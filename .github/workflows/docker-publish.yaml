@@ -87,10 +87,10 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: drashti114/homebox
-          tags: |
-            {{ref_name}}-{{short_sha}}-{{timestamp}}
-
+           images: drashti114/homebox
+           tags: |
+                  type=raw,value=${{ github.ref_name }}-${{ github.sha::7 }}-${{ github.run_id }}
+                  
       - name: Login
         uses: docker/login-action@v3
         with:
