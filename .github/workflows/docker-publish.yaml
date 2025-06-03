@@ -8,7 +8,7 @@ on:
 
 jobs:
   job_backend:
-    name: Backend Phase
+    name: Backend Phase (Lint & Test)
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -32,21 +32,8 @@ jobs:
       - name: Run Go tests
         run: go test ./...
 
-      - name: Build Go project
-        run: go build -o homebox
-        working-directory: backend/app/api
-
-      - name: Start backend server
-        run: |
-          ./homebox &
-          echo $! > server.pid
-        working-directory: backend/app/api
-
-      - name: Wait for backend to be ready
-        run: sleep 5
-
   job_frontend:
-    name: Frontend Phase
+    name: Frontend Phase (Build Backend, Start API & Run Frontend Tests)
     runs-on: ubuntu-latest
     needs: job_backend
     defaults:
@@ -56,6 +43,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Build backend API
+        run: |
+          cd ../backend/app/api
+          go build -o homebox
+
+      - name: Start backend server
+        run: |
+          cd ../backend/app/api
+          ./homebox &
+          sleep 5
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
