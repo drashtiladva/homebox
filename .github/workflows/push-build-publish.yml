@@ -82,15 +82,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Extract tag info
-        id: vars
-        run: |
-         echo "branch=${{ github.head_ref || github.ref_name }}" >> $GITHUB_OUTPUT
-         echo "short_sha=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
-         echo "timestamp=$(TZ=Asia/Kolkata date +'%Y%m%d-%H%M%S')" >> $GITHUB_OUTPUT
-
-          
+        
       - name: Metadata
         id: meta
         uses: docker/metadata-action@v5
@@ -98,7 +90,7 @@ jobs:
            images: drashti114/homebox
            tags: |
               tags: |
-              type=raw,value=${{ steps.vars.outputs.branch }}-${{ steps.vars.outputs.short_sha }}-${{ steps.vars.outputs.timestamp }}
+               tags: type=raw,value={{branch}}-{{short_sha}}-{{date "20060102-150405" tz="Asia/Kolkata"}
 
       - name: Login
         uses: docker/login-action@v3
