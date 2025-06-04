@@ -89,7 +89,8 @@ jobs:
         with:
            images: drashti114/homebox
            tags: |
-               type=sha,prefix={{branch}}-
+               tags: type=sha,prefix={{branch || "default"}}-
+
                   
       - name: Login
         uses: docker/login-action@v3
