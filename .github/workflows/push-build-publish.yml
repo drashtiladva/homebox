@@ -85,11 +85,12 @@ jobs:
         
       - name: Metadata
         id: meta
+        if: github.event_name != 'pull_request'
         uses: docker/metadata-action@v5
         with:
            images: drashti114/homebox
            tags: |
-                type=raw,value={{ref_name}}-{{sha_short}}-{{date 'YYYYMMDD-HHmmss' tz='Asia/Tokyo'}}
+                type=raw,value={{branch}}-{{sha_short}}-{{date 'X'}}
 
       - name: Login
         if: github.event_name != 'pull_request'
