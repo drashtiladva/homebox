@@ -90,7 +90,7 @@ jobs:
            images: drashti114/homebox
            tags: |
               tags: |
-               tags: type=raw,value={{branch}}-{{short_sha}}-{{date "20060102-150405" tz="Asia/Kolkata"}
+               tags: type=raw,value={{branch}}-{{short_sha}}-{{date }
 
       - name: Login
         uses: docker/login-action@v3
