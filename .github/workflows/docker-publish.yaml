@@ -89,7 +89,7 @@ jobs:
         with:
            images: drashti114/homebox
            tags: |
-                type=ref,event=branch
+               type=raw,value=${{ github.ref_name }}-${{ github.sha::7 }}
                   
       - name: Login
         uses: docker/login-action@v3
