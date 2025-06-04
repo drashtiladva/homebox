@@ -11,7 +11,7 @@
    <a href="https://discord.gg/aY4DCkpNA9">Discord</a>
 </p>
 
-## What is HomeBox
+## What is the HomeBox 
 
 The HomeBox is the inventory and organization system built for the Home User! With a focus on simplicity and ease of use, Homebox is the perfect solution for your home inventory, organization, and management needs. While developing this project, I've tried to keep the following principles in mind:
 
