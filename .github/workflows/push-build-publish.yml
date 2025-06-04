@@ -89,7 +89,7 @@ jobs:
         with:
            images: drashti114/homebox
            tags: |
-               tags: type=raw,value={{branch}}-{{short_sha}}-{{date 'YYYYMMDD-HHmmss' tz='Asia/Tokyo'}}
+                type=raw,value={{ref_name}}-{{sha_short}}-{{date 'YYYYMMDD-HHmmss' tz='Asia/Tokyo'}}
 
       - name: Login
         if: github.event_name != 'pull_request'
