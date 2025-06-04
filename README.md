@@ -11,9 +11,11 @@
    <a href="https://discord.gg/aY4DCkpNA9">Discord</a>
 </p>
 
-## What is the HomeBox 
+## What is the HomeBox
+
 
 The HomeBox is the inventory and organization system built for the Home User! With a focus on simplicity and ease of use, Homebox is the perfect solution for your home inventory, organization, and management needs. While developing this project, I've tried to keep the following principles in mind:
+
 
 - _Simple_ - Homebox is designed to be simple and easy to use. No complicated setup or configuration required. Use either a single docker container, or deploy yourself by compiling the binary for your platform of choice.
 - _Blazingly Fast_ - Homebox is written in Go, which makes it extremely fast and requires minimal resources to deploy. In general, idle memory usage is less than 50MB for the whole container.
@@ -31,7 +33,7 @@ You can also try the demo instances of Homebox:
 [Configuration & Docker Compose](https://homebox.software/en/quick-start.html)
 
 ```bash
-# If using the rootless image, ensure data 
+# If using the rootless image, ensure data
 # folder has correct permissions
 mkdir -p /path/to/data/folder
 chown 65532:65532 -R /path/to/data/folder
